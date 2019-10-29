@@ -4,7 +4,7 @@ Welcome! Tonight we'll be creating a random advice generator (fun animations inc
 Feel free to ask lots of questions and build on this project! Follow the steps below to get going:
 
 ## 1. Download a code editor (if you don't already have one).
-A code editor will make it easier for you to look at and edit the code for your mad libs app. 
+A code editor will make it easier for you to look at and edit the code for your app. 
 
 Here are some great **open source** code editor that is compatible with Windows, Mac, and Linux:
 - **[Visual Studio Code](https://code.visualstudio.com/download)**: Microsoft's code editor with a super sleek user interface and terminal integration.  
@@ -48,20 +48,18 @@ Clone your repo
 
 [![Screen-Shot-2019-10-29-at-3-48-04-PM.png](https://i.postimg.cc/5tDDMCtF/Screen-Shot-2019-10-29-at-3-48-04-PM.png)](https://postimg.cc/5HqsBjLx)
 
-
-
-
 **If you'd like to test the starter code (and test your changes throughout) double click `index.html`. Refresh the page to view changes as you make them.**
+
 
 ## 3. Open the project in your code editor.
 
-You'll see one file called `index.html` and folder called `js`. `index.html` is the file that constitutes the homepage of the website. The `js` folder is where all **Javascript** files will be kept. As of now, we only have one Javascript file, `main.js`, which is our main script for the website. There is also a **style.css** file that contains some minor styling for the webpage. Feel free to ignore or play around with it!
+You'll see one file called `index.html` and folder called `js`. `index.html` is the file that constitutes the homepage of the website. The `js` folder is where all **Javascript** files will be kept. As of now, we only have one Javascript file, `main.js`, which is our main script for the website. There is also a **style.css** file that contains some minor styling for the webpage. Feel free to ignore it or play around with it!
 
 ## 4. Check out the Advice Slip API
 
 [Click on this link to go to the API](http://api.adviceslip.com/) we will be using tonight. 
 
-While there are hundreds of APIs to use on the internet, many are considered "consumption-only" and only allow you to make `GET` requests. In order to make `POST`, `PUT`, or `DELETE` requests, many APIs require some kind of authentification. That will not be covered in this tutorial but we highly encourage you to explore such APIs like Twitter or Spotify's API!
+While there are hundreds of APIs to use on the internet, many are considered "consumption-only" and only allow you to make `GET` requests. In order to make `POST`, `PUT`, or `DELETE` requests, many APIs require some kind of authentication. That will not be covered in this tutorial but we highly encourage you to explore such APIs like Twitter or Spotify's API!
 Check out the **Random Advice** section of the API. The request we will be making is `GET` and the url is what will be making the request to get the data.
 Now look at the **Slip Object** section. This tells us what fields make up the object that will be returned in the reponse. We will use these fields to access the advice string so we can display it. 
 
@@ -80,7 +78,7 @@ At line 1 write: `const url = 'https://api.adviceslip.com/advice'`
 This url will change depending on what information you're trying to get. For this project we want random advice but we could also get just one specific piece of advice. We would do this by calling `https://api.adviceslip.com/advice/{slip_id}` instead. 
 
 Next, we want to make our request. We do this by calling `fetch(url)`. This method is part of *another* API, called [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). Fetch provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses. 
-`fetch()` provides a logical way to fetch resources asynchronously across the network. It's API inception!!
+`fetch()` provides a logical way to get resources asynchronously across the network. It's API inception!!
 
 Inside the `getAdvice()` function after `confetti.start();` we want to write:
 ```
@@ -93,7 +91,7 @@ fetch(url)
 ```
         
 
-`response => response.json()` transforms the data into a JSON object and `function(advice)` handles displaying the data. We access the advice (string) of the JSON object by calling advice.slip.advice. This becomes text that we now can put inside our modal element, which we do by writing `document.getElementById('advice').innerHTML = adviceData;`
+`response => response.json()` transforms the data into a JSON object and `function(advice)` handles displaying the data. We access the advice (string) of the JSON object by calling `advice.slip.advice`. This becomes text that we now can put inside our modal element, which we do by writing `document.getElementById('advice').innerHTML = adviceData;`
 
 Finally refresh the page and watch the magic happen! 
 
